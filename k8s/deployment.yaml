@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-dashboard
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: student-dashboard
+  template:
+    metadata:
+      labels:
+        app: student-dashboard
+    spec:
+      containers:
+      - name: student-dashboard
+        # This is a placeholder image; Jenkins will update it
+        image: your-dockerhub-username/student-dashboard:latest
+        ports:
+        - containerPort: 3000
